@@ -17,7 +17,8 @@ export class PizzaListsComponent implements OnInit {
   constructor(private store: Store<fromStore.PizzasState>) {}
 
   ngOnInit() {
-    this.store.select('pizzas').subscribe(state => {
+    // this.store.select('pizzas').subscribe(state => {  // return {pizzas:{...}}
+     this.store.select(fromStore.getAllPizzas).subscribe(state => { // return {{...}}
       console.log(state);
     });
   }
