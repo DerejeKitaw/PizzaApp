@@ -21,3 +21,6 @@ export class LoadPizzas implements Action {
     readonly type = LOAD_PIZZAS_SUCCESS;
     constructor(public payload: Pizza[]) {} // import Pizza model
   }
+
+  // action types
+export type PizzasAction = LoadPizzas | LoadPizzasFail | LoadPizzasSuccess;
