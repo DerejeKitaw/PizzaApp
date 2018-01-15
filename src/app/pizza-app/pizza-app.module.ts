@@ -15,7 +15,7 @@ import { PizzaAppRoutingModule } from './pizza-app-routing.module';
 import { PizzaToppingsComponent } from './pizza-detail/pizza-toppings/pizza-toppings.component';
 
 // register store module to angular piza module
-import { StoreModule } from '@ngrx/store';
+import { Store, StoreModule } from '@ngrx/store';
 
 // get all reducer properties
 import { reducers } from './store'; // reducers object will be pass to StoreModule.forFeacher
@@ -28,7 +28,7 @@ import { reducers } from './store'; // reducers object will be pass to StoreModu
     PizzaAppRoutingModule,
     // forFeature will lazzy load modules
     // the empty object is going to be our reducer object
-    StoreModule.forFeature('pizzas', {}),
+    StoreModule.forFeature('pizzas', reducers),
   ],
   declarations: [
     PizzaListsComponent,

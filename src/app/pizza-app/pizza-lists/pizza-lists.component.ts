@@ -1,7 +1,10 @@
 import { Pizza } from '../../models/pizza.model';
 
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+import * as fromStore from '../store';
 import { Component, OnInit } from '@angular/core';
-import { PizzasService } from '../services/pizzas.service';
+
 
 @Component({
   selector: 'app-pizza-lists',
@@ -11,12 +14,11 @@ import { PizzasService } from '../services/pizzas.service';
 export class PizzaListsComponent implements OnInit {
   pizzas: Pizza[];
 
-  constructor(private pizzaService: PizzasService) {}
+  constructor(private store: Store<fromStore.PizzasState>) {}
 
   ngOnInit() {
-    this.pizzaService.getPizzas().subscribe(pizzas => {
-      this.pizzas = pizzas;
-      console.log('piza works' +  JSON.stringify(this.pizzas));
+    this.store.select('pizzas').subscribe(state => {
+      console.log(state);
     });
   }
 }

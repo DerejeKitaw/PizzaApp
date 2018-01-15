@@ -11,7 +11,7 @@ export const initialState: PizzaState = {
   // the way we dispaly this data is through a selector
     data: [
         {
-            name: "Seaside Surfin'",
+            name: 'Seaside Surfin',
             toppings: [
               {
                 id: 6,
@@ -52,7 +52,7 @@ export const initialState: PizzaState = {
             ],
             id: 2,
           },
-    ], 
+    ],
   loaded: false,
   loading: false,
 };
