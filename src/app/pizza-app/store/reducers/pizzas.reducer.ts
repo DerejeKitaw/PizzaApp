@@ -11,3 +11,10 @@ export const initialState: PizzaState = {
   loaded: false,
   loading: false,
 };
+
+export function reducer (
+    // take initial state and action
+): PizzaState { // returned state need to be PizzaState
+
+    // return new state = initial state + action
+}
