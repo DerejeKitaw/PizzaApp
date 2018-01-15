@@ -17,6 +17,9 @@ import { PizzaToppingsComponent } from './pizza-detail/pizza-toppings/pizza-topp
 // register store module to angular piza module
 import { StoreModule } from '@ngrx/store';
 
+// get all reducer properties
+import { reducers } from './store'; // reducers object will be pass to StoreModule.forFeacher
+
 @NgModule({
   imports: [
     CommonModule,
