@@ -1,3 +1,4 @@
+import * as fromPizzas from '../actions/pizzas.action';
 import { Pizza } from '../../../models/pizza.model';
 
 export interface PizzaState {
@@ -14,7 +15,31 @@ export const initialState: PizzaState = {
 
 export function reducer (
     // take initial state and action
+    state = initialState,
+    action: fromPizzas.PizzasAction
 ): PizzaState { // returned state need to be PizzaState
-
     // return new state = initial state + action
+    switch (action.type) {
+        case fromPizzas.LOAD_PIZZAS: {
+          return {
+            ...state,
+            loading: true,
+          };
+        }
+        case fromPizzas.LOAD_PIZZAS_SUCCESS: {
+          return {
+            ...state,
+            loading: false,
+            loaded: true,
+          };
+        }
+        case fromPizzas.LOAD_PIZZAS_FAIL: {
+          return {
+            ...state,
+            loading: false,
+            loaded: false,
+          };
+        }
+      }
+      return state;
 }
