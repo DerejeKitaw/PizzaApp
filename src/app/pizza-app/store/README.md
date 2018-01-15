@@ -3,4 +3,5 @@
     create reducers folder
     index.ts
 
-02 - create pizaas
+02 - create pizaas.action.ts
+    import Actionsfrom ngrx
