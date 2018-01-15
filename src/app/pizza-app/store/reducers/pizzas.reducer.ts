@@ -23,20 +23,20 @@ export function reducer (
         case fromPizzas.LOAD_PIZZAS: {
           return {
             ...state,
-            loading: true,
+            loading: true, // loadding is sccessfull
           };
         }
         case fromPizzas.LOAD_PIZZAS_SUCCESS: {
           return {
             ...state,
-            loading: false,
+            loading: false, // already loadded
             loaded: true,
           };
         }
         case fromPizzas.LOAD_PIZZAS_FAIL: {
           return {
             ...state,
-            loading: false,
+            loading: false, // already loadded
             loaded: false,
           };
         }
