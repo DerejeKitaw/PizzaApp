@@ -12,14 +12,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pizza-lists.component.scss']
 })
 export class PizzaListsComponent implements OnInit {
-  pizzas: Pizza[];
-
+  // pizzas: Pizza[];
+  pizzas$: Observable<Pizza[]>;
   constructor(private store: Store<fromStore.PizzasState>) {}
 
   ngOnInit() {
-    // this.store.select('pizzas').subscribe(state => {  // return {pizzas:{...}}
-     this.store.select(fromStore.getAllPizzas).subscribe(state => { // return {{...}}
-      console.log(state);
-    });
+    // // this.store.select('pizzas').subscribe(state => {  // return {pizzas:{...}}
+    //  this.store.select(fromStore.getAllPizzas).subscribe(state => { // return {{...}}
+    //   console.log(state);
+    // });
+    this.pizzas$ = this.store.select(fromStore.getAllPizzas);
   }
 }
