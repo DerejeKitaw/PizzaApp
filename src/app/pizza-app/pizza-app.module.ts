@@ -16,9 +16,10 @@ import { PizzaToppingsComponent } from './pizza-detail/pizza-toppings/pizza-topp
 
 // register store module to angular piza module
 import { Store, StoreModule } from '@ngrx/store';
-
+// register EffectsModule to angular piza module
+import { EffectsModule } from '@ngrx/effects';
 // get all reducer properties
-import { reducers } from './store'; // reducers object will be pass to StoreModule.forFeacher
+import { reducers , effects } from './store'; // reducers object will be pass to StoreModule.forFeacher
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { reducers } from './store'; // reducers object will be pass to StoreModu
     // forFeature will lazzy load modules
     // the empty object is going to be our reducer object
     StoreModule.forFeature('pizzas', reducers),
+    EffectsModule.forFeature(effects),
   ],
   declarations: [
     PizzaListsComponent,

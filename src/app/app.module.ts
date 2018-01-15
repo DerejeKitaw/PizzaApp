@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { StoreModule, MetaReducer } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { StoreModule, MetaReducer } from '@ngrx/store';
     BrowserAnimationsModule,
     AppRoutingModule,
     StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([]),
   ],
   exports: [
     ],

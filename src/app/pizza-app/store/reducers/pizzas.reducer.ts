@@ -71,6 +71,13 @@ export function reducer (
           };
         }
         case fromPizzas.LOAD_PIZZAS_SUCCESS: {
+          console.log(action.payload);
+          // return
+          // (4) [{…}, {…}, {…}, {…}]
+          // {name: "Blazin' Inferno", toppings: Array(3), id: 1}
+          // {name: "Seaside Surfin'", toppings: Array(9), id: 2}
+          // {name: "testy", toppings: Array(4), id: 7}
+          // {name: "nice", toppings: Array(2), id: 8}
           return {
             ...state,
             loading: false, // already loadded
