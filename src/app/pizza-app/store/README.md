@@ -5,3 +5,5 @@
 
 02 - create pizaas.action.ts
     import Actionsfrom ngrx
+
+<img src="../../../assets/ngrx-effect.png" >
