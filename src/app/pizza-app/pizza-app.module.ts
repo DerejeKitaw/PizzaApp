@@ -14,12 +14,18 @@ import { CommonModule } from '@angular/common';
 import { PizzaAppRoutingModule } from './pizza-app-routing.module';
 import { PizzaToppingsComponent } from './pizza-detail/pizza-toppings/pizza-toppings.component';
 
+// register store module to angular piza module
+import { StoreModule } from '@ngrx/store';
+
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
-    PizzaAppRoutingModule
+    PizzaAppRoutingModule,
+    // forFeature will lazzy load modules
+    // the empty object is going to be our reducer object
+    StoreModule.forFeature('pizzas', {}),
   ],
   declarations: [
     PizzaListsComponent,
