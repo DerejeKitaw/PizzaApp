@@ -51,6 +51,7 @@
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.4.2",
-    "json-server": "^0.9.5"
+    "json-server": "^0.9.5",
+    "ngrx-store-freeze": "^0.2.0"
   }
 }

@@ -16,8 +16,13 @@ import { EffectsModule } from '@ngrx/effects';
 
 // not used in production
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-// import { storeFreeze } from 'ngrx-store-freeze';
+ import { storeFreeze } from 'ngrx-store-freeze';
 
+ export const metaReducers: MetaReducer<any>[] = !environment.production
+  ? [storeFreeze]
+  : [];
+
+  
 @NgModule({
   declarations: [
     AppComponent
