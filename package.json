@@ -25,7 +25,11 @@
     "core-js": "^2.4.1",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14",
-    "bootstrap": "4.0.0-beta.2"
+    "bootstrap": "4.0.0-beta.2",
+    "@ngrx/effects": "4.1.0",
+    "@ngrx/router-store": "4.1.1",
+    "@ngrx/store": "4.1.0",
+    "@ngrx/store-devtools": "4.0.0"
   },
   "devDependencies": {
     "@angular/cli": "1.5.0",
@@ -47,6 +51,7 @@
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.4.2",
-    "json-server": "^0.9.5"
+    "json-server": "^0.9.5",
+    "ngrx-store-freeze": "^0.2.0"
   }
 }
