@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pizza-lists.component.scss']
 })
 export class PizzaListsComponent implements OnInit {
-  // pizzas: Pizza[];
+  pizzas: Pizza[];
   pizzas$: Observable<Pizza[]>;
   constructor(private store: Store<fromStore.PizzasState>) {}
 
@@ -21,7 +21,7 @@ export class PizzaListsComponent implements OnInit {
     //  this.store.select(fromStore.getAllPizzas).subscribe(state => { // return {{...}}
     //   console.log(state);
     // });
-    // this.pizzas$ = this.store.select(fromStore.getAllPizzas);
+    this.pizzas$ = this.store.select(fromStore.getAllPizzas);
     this.store.dispatch( new fromStore.LoadPizzas());
   }
 }
