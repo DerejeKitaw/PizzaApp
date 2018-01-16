@@ -14,12 +14,13 @@ import { AppComponent } from './app.component';
 import { StoreModule, MetaReducer } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { reducers } from './store';
+import { reducers , CustomSerializer} from './store';
 
 // not used in production
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
  import { storeFreeze } from 'ngrx-store-freeze';
 
+ import { StoreRouterConnectingModule, RouterStateSerializer } from '@ngrx/router-store';
  export const metaReducers: MetaReducer<any>[] = !environment.production
   ? [storeFreeze]
   : [];
@@ -35,12 +36,13 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     AppRoutingModule,
     StoreModule.forRoot(reducers, {}),
     EffectsModule.forRoot([]),
+    StoreRouterConnectingModule,
     environment.production ? [] : StoreDevtoolsModule.instrument() ,
 
   ],
   exports: [
     ],
-  providers: [],
-  bootstrap: [AppComponent]
+    providers: [{ provide: RouterStateSerializer, useClass: CustomSerializer }],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
