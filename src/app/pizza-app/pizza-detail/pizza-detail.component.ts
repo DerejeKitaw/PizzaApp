@@ -16,19 +16,20 @@ import { Pizza } from '../../models/pizza.model';
 })
 export class PizzaDetailComponent implements OnInit {
   pizza$: Observable<Pizza>;
-  visualise: Pizza;
+  visualise$: Observable<Pizza>;
   toppings$: Observable<Topping[]>;
 
   constructor(private store: Store<fromStore.PizzasState>) {}
 
   ngOnInit() {
-    
     this.pizza$ = this.store.select(fromStore.getSelectedPizza);
     this.toppings$ = this.store.select(fromStore.getAllToppings);
+    this.visualise$ = this.store.select(fromStore.getPizzaVisualised);
   }
 
   onSelect(event: number[]) {
-    console.log('onSelect:::', event); // onSelect::: (3) [9, 4, 1]
+    // console.log('onSelect:::', event); // onSelect::: (3) [9, 4, 1]
+    this.store.dispatch(new fromStore.VisualiseToppings(event));
   }
 
   onCreate(event: Pizza) {}
