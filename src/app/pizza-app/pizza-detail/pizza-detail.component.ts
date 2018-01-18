@@ -17,13 +17,14 @@ import { Pizza } from '../../models/pizza.model';
 export class PizzaDetailComponent implements OnInit {
   pizza$: Observable<Pizza>;
   visualise: Pizza;
-  toppings: Topping[];
+  toppings$: Observable<Topping[]>;
 
   constructor(private store: Store<fromStore.PizzasState>) {}
 
   ngOnInit() {
     this.store.dispatch(new fromStore.LoadToppings());
     this.pizza$ = this.store.select(fromStore.getSelectedPizza);
+    this.toppings$ = this.store.select(fromStore.getAllToppings);
   }
 
   onSelect(event: number[]) {}
