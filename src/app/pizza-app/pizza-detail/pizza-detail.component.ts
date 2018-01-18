@@ -27,7 +27,9 @@ export class PizzaDetailComponent implements OnInit {
     this.toppings$ = this.store.select(fromStore.getAllToppings);
   }
 
-  onSelect(event: number[]) {}
+  onSelect(event: number[]) {
+    console.log('onSelect:::', event); // onSelect::: (3) [9, 4, 1]
+  }
 
   onCreate(event: Pizza) {}
 
