@@ -1,10 +1,7 @@
 import {
-  ActionReducerMap,
-  createFeatureSelector,
-  createSelector
-} from "@ngrx/store"; // ActionReducerMap check types for us based on provided argument state type
+  ActionReducerMap, createFeatureSelector} from '@ngrx/store'; // ActionReducerMap check types for us based on provided argument state type
 
-import * as fromPizzas from "./pizzas.reducer";
+import * as fromPizzas from './pizzas.reducer';
 
 export interface PizzasState {
   pizzas: fromPizzas.PizzaState;
@@ -19,29 +16,4 @@ export const reducers: ActionReducerMap<PizzasState> = {
 export const getPizzasState = createFeatureSelector<PizzasState>(
   // 'pizzas' comes from pizza-app-module.ts StoreModule.forFeature('pizzas', reducers),
   'pizzas'
-);
-
-// pizzas state
-export const getPizzaState = createSelector(
-  getPizzasState,
-  (state: PizzasState) => state.pizzas
-);
-
-export const getPizzasEntities = createSelector(
-  getPizzaState,
-  fromPizzas.getPizzasEntities
-);
-
-// export const getAllPizzas = createSelector(getPizzaState, fromPizzas.getPizzas);
-export const getAllPizzas = createSelector(getPizzasEntities, entities => {
-  return Object.keys(entities).map(id => entities[parseInt(id, 10)]);
-});
-
-export const getPizzasLoaded = createSelector(
-  getPizzaState,
-  fromPizzas.getPizzasLoaded
-);
-export const getPizzasLoading = createSelector(
-  getPizzaState,
-  fromPizzas.getPizzasLoading
 );
