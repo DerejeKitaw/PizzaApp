@@ -6,20 +6,20 @@ import { PizzaListsComponent } from '../pizza-app/pizza-lists/pizza-lists.compon
 const routes: Routes = [
   {
     path: '',
-    component: PizzaListsComponent,
-  },
-  {
-    path: ':id',
-    component: PizzaDetailComponent,
+    component: PizzaListsComponent
   },
   {
     path: 'new',
-    component: PizzaDetailComponent,
+    component: PizzaDetailComponent
   },
+  {
+    path: ':pizzaId',
+    component: PizzaDetailComponent
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class PizzaAppRoutingModule { }
+export class PizzaAppRoutingModule {}
